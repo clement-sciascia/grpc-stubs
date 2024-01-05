@@ -239,3 +239,10 @@
     import grpc.aio
     reveal_type(grpc.aio.Channel())  # N: Revealed type is "grpc.aio.Channel"
     reveal_type(grpc.aio.Server())   # N: Revealed type is "grpc.aio.Server"
+
+- case: foo
+  main: |
+    import grpc
+    reveal_type(grpc.ServicerContext())           # N: Revealed type is "grpc.ServicerContext"
+    reveal_type(grpc.ServicerContext().code())    # N: Revealed type is "Union[grpc.StatusCode, None]"
+    reveal_type(grpc.ServicerContext().details()) # N: Revealed type is "Union[builtins.bytes, None]"
